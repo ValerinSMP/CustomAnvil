@@ -12,3 +12,6 @@
 - Gameplay humano, cliente/click final, configuraciones privadas: no verificados.
 - Siguiente paso: entrega revisable. Instalación/lifecycle fuera de esta tarea;
   producción requiere autorización separada.
+
+- Git: código validado en commit local 8ec1417. Push pendiente: no hay
+  autenticación GitHub configurada en personal ni HomeSV; no se cambiaron credenciales.

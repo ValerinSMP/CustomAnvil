@@ -161,3 +161,10 @@ Personal: /root/development/artifacts/CustomAnvil/2.2.0-valerin.1/.
 
 SHA256SUMS, manifest.json, build.log, unit-test-results y smoke-results.json
 conservan evidencias, incluido el fallo previo de EcoItems y su corrección.
+
+## Publicación Git
+
+Código validado en commit local 8ec1417. El push HTTPS desde personal falló
+por falta de autenticación; HomeSV tampoco tiene sesión gh configurada.
+Se conserva la entrega local; la rama remota valerin sigue en 1c3ee48.
+No se copiarán ni cambiarán credenciales para resolverlo.
