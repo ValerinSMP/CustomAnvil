@@ -16,7 +16,10 @@ object EcoItemDependencyUtil {
     }
 
     fun ecoItemFromKey(key: NamespacedKey): EcoItem? {
-        return EcoItems.getByID(key.toString())
+        // EcoItems versions differ in whether the registry accepts a namespaced ID.
+        // Validate the provider identity before accepting the bare-ID fallback.
+        return EcoItems.getByID(key.toString())?.takeIf { it.id == key }
+            ?: EcoItems.getByID(key.key)?.takeIf { it.id == key }
     }
 
     fun ecoItemMaterialFromKey(key: NamespacedKey): Material? {

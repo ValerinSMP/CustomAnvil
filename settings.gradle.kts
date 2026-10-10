@@ -8,7 +8,7 @@ findProject(":nms:nms-paper")?.name = "nms-paper"
 
 
 val reobfNMS = providers.gradleProperty("subprojects.reobfnms")
-    .get().split(",")
+    .get().split(",").filter { it.isNotBlank() }
 
 for (nmsPart in reobfNMS) {
     include("nms:$nmsPart")

@@ -46,12 +46,13 @@ public class Update_1_20_5 extends MCUpdate {
 
     private static void migrateEnchantLimit(FileConfiguration config, String path) {
         var finalPath = "enchant_limits." + path;
-        if(!config.isInt(finalPath)) return;
+        if(!config.contains(finalPath, true) || !config.isInt(finalPath)) return;
         var value = config.getInt(finalPath);
 
         config.set(finalPath, null);
-        if(!config.contains("enchant_limits.minecraft:sweeping_edge")) return;
-        if(!config.contains("enchant_limits.sweeping_edge")) return;
+        // Only explicit settings override migrated values; defaults must not erase them.
+        if(config.contains("enchant_limits.minecraft:sweeping_edge", true)) return;
+        if(config.contains("enchant_limits.sweeping_edge", true)) return;
 
         config.set("enchant_limits.minecraft:sweeping_edge", value);
     }
@@ -63,12 +64,12 @@ public class Update_1_20_5 extends MCUpdate {
 
     private static void migrateEnchantValues(FileConfiguration config, String path, String child) {
         var finalPath = "enchant_values." + path + "." + child;
-        if(config.isInt(finalPath)) return;
+        if(!config.contains(finalPath, true) || !config.isInt(finalPath)) return;
         var value = config.getInt(finalPath);
 
         config.set(finalPath, null);
-        if(!config.contains("enchant_values.minecraft:sweeping_edge." + child)) return;
-        if(!config.contains("enchant_values.sweeping_edge." + child)) return;
+        if(config.contains("enchant_values.minecraft:sweeping_edge." + child, true)) return;
+        if(config.contains("enchant_values.sweeping_edge." + child, true)) return;
 
         config.set("enchant_values.minecraft:sweeping_edge." + child, value);
     }

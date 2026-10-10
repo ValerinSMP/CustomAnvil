@@ -1,0 +1,6 @@
+name: LeafAnvilProbe
+version: 1.0
+main: valerin.anvilprobe.LeafAnvilProbe
+api-version: '26.2'
+depend: [CustomAnvil]
+softdepend: [eco, libreforge, EcoEnchants, EcoItems]

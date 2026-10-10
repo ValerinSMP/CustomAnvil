@@ -109,3 +109,11 @@ Most unknown registered enchantments (by unsupported custom enchantment plugin &
 
 ### Do you need help with the plugin, or have any issue or suggestion?
 You can ask on the discussion page, create a [GitHub issue](https://github.com/alexcrea/CustomAnvil/issues) or join my [discord](https://discord.gg/KHUNsUfRYJ)​
+
+### Valerin native Leaf build
+
+The Valerin branch preserves upstream anvil features and configuration contracts.
+For the Leaf 26.2 candidate, run bash tools/build-personal-native.sh on the
+authorized personal development host. Build output targets Java 21.
+See [Valerin Leaf 26.2 delivery](docs/VALERIN-LEAF-26.2.md) for provenance,
+migration, tests, native-only artifact scope and runtime limitations.

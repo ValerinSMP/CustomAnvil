@@ -21,7 +21,7 @@ plugins {
 }
 
 group = "xyz.alexcrea"
-version = "2.2.0"
+version = "2.2.0-valerin.1"
 
 val isDevBuild = System.getenv("SMALL_COMMIT_HASH") != null
 val isPreRelease = System.getenv("IS_GITHUB_PRERELEASE") == "true"
@@ -56,7 +56,7 @@ repositories {
 }
 
 val reobfNMS = providers.gradleProperty("subprojects.reobfnms")
-    .get().split(",")
+    .get().split(",").filter { it.isNotBlank() }
 
 dependencies {
     compileOnly("org.jetbrains:annotations:26.1.0")
@@ -182,6 +182,8 @@ allprojects {
         targetCompatibility = "21"
 
         options.encoding = "UTF-8"
+        // JDK 25 compiler, upstream Java 21 API/bytecode contract.
+        options.release.set(21)
     }
 
     kotlin {
