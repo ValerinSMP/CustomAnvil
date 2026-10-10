@@ -5,6 +5,8 @@ import org.bukkit.NamespacedKey
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.inventory.ItemStack
 import xyz.alexcrea.cuanvil.api.EnchantmentApi
+import xyz.alexcrea.cuanvil.dependency.DependencyManager
+import xyz.alexcrea.cuanvil.dependency.plugins.EcoItemDependencyUtil
 import xyz.alexcrea.cuanvil.enchant.AdditionalTestEnchantment
 import xyz.alexcrea.cuanvil.enchant.CAEnchantment
 import xyz.alexcrea.cuanvil.enchant.CAEnchantmentRegistry
@@ -188,6 +190,8 @@ class EnchantConflictManager {
         newEnchant: CAEnchantment
     ): ConflictType {
         val type = item.customType
+        val ecoBaseType = if (DependencyManager.hasEcoItem &&
+            EcoItemDependencyUtil.ecoItemNamespace(item) != null) item.type.key else null
         CustomAnvil.verboseLog("Testing conflict for ${newEnchant.key} on ${type}")
         val conflictList = newEnchant.conflicts
 
@@ -199,7 +203,8 @@ class EnchantConflictManager {
                 continue
             }
 
-            val allowed = conflict.allowed(appliedEnchants, type)
+            val policyType = conflict.getCantConflictGroup().enchantmentPolicyType(type, ecoBaseType)
+            val allowed = conflict.allowed(appliedEnchants, policyType)
             CustomAnvil.verboseLog("Was against $conflict and conflicting: ${!allowed} ")
             if (!allowed) {
                 if (conflict.getEnchants().size <= 1) {

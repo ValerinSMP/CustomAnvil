@@ -19,6 +19,22 @@ abstract class AbstractMaterialGroup(private val name: String) {
         return mat in getMaterials()
     }
 
+    /** Resolve enchantment eligibility without losing explicit custom-item policies. */
+    fun enchantmentPolicyType(customType: NamespacedKey, baseType: NamespacedKey?): NamespacedKey {
+        if (baseType == null || referencesMaterialPolicy(customType, HashSet())) return customType
+        return baseType
+    }
+
+    private fun referencesMaterialPolicy(type: NamespacedKey, visited: MutableSet<AbstractMaterialGroup>): Boolean {
+        if (!visited.add(this)) return false
+        val explicit = getNonGroupInheritedMaterials()
+        // An exclusion set contains almost everything; only its negated entries are explicit.
+        if (explicit is NegativeMaterialSet) {
+            if (type in explicit.negate) return true
+        } else if (type in explicit) return true
+        return getGroups().any { it.referencesMaterialPolicy(type, visited) }
+    }
+
     /**
      * Get if a group is referenced by this:
      */

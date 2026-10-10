@@ -120,3 +120,6 @@ migration, tests, native-only artifact scope and runtime limitations.
 
 La entrega Valerin 2.2.0-valerin.2 recupera el reset de penalización del binario
 productivo; contrato y validación en [VALERIN-REPAIR-COST.md](docs/VALERIN-REPAIR-COST.md).
+
+La entrega2.2.0-valerin.3 corrige la clasificación de EcoItems al encantar;
+[alcance y pruebas sin servidor](docs/VALERIN-ECOITEM-ENCHANTING.md).
