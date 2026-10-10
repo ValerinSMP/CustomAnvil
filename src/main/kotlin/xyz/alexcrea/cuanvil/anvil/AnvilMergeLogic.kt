@@ -116,6 +116,7 @@ object AnvilMergeLogic {
         val result =
             DependencyManager.tryTreatAnvilResult(view, player, resultItem, AnvilUseType.RENAME_ONLY, cost)
 
+        AnvilXpUtil.sanitizeResultRepairCost(result)
         return AnvilResult(result, cost)
     }
 
@@ -229,6 +230,7 @@ object AnvilMergeLogic {
         val result =
             DependencyManager.tryTreatAnvilResult(view, player, resultItem, AnvilUseType.MERGE, cost)
 
+        AnvilXpUtil.sanitizeResultRepairCost(result)
         return AnvilResult(result, cost)
     }
 
@@ -269,6 +271,7 @@ object AnvilMergeLogic {
 
         val result =
             DependencyManager.tryTreatAnvilResult(view, player, resultItem, AnvilUseType.CUSTOM_CRAFT, cost)
+        AnvilXpUtil.sanitizeResultRepairCost(result)
         return CustomCraftResult(result, cost, amount, recipe)
     }
 
@@ -307,6 +310,7 @@ object AnvilMergeLogic {
 
         val result =
             DependencyManager.tryTreatAnvilResult(view, player, resultItem, AnvilUseType.UNIT_REPAIR, cost)
+        AnvilXpUtil.sanitizeResultRepairCost(result)
         return UnitRepairResult(result, cost, repairAmount)
     }
 
@@ -329,6 +333,7 @@ object AnvilMergeLogic {
             return LoreEditResult.EMPTY
         }
 
+        AnvilXpUtil.sanitizeResultRepairCost(result.item)
         return result
     }
 

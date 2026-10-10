@@ -62,6 +62,12 @@ item_rename_cost: 1
 # Valid values include 0 to 1000
 unit_repair_cost: 1
 
+# Reset vanilla prior-work penalty on successful results, without changing this operation XP.
+# Existing Valerin configurations may enable this; absent keys retain upstream behaviour.
+reset_result_repair_cost: false
+# Stored penalty value: 0 to 1000. Invalid values fall back to 0.
+reset_result_repair_cost_value: 0
+
 # XP Level amount added to the anvil when a sacrifice enchantment
 # conflict with one of the left item enchantment
 #

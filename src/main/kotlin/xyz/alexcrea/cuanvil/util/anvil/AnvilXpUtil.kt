@@ -29,6 +29,15 @@ object AnvilXpUtil {
 
     const val EXCLUSIVE_PENALTY_PREFIX = "repair_cost"
 
+    /** Reset the stored vanilla prior-work penalty, after calculating this operation cost. */
+    fun sanitizeResultRepairCost(result: ItemStack?) {
+        if (!ConfigOptions.doResetResultRepairCost || result == null) return
+        val meta = result.itemMeta ?: return
+        if (meta !is Repairable) return
+        meta.repairCost = ConfigOptions.resetResultRepairCostValue
+        result.itemMeta = meta
+    }
+
     /**
      * Display the required cost (either as xp or as money) or reset anvil price depending on result
      */

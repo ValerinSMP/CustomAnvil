@@ -7,7 +7,7 @@ base = Path(sys.argv[2])
 out = project / "build/leaf-probe"
 out.mkdir(parents=True, exist_ok=True)
 jars = [runtime / "versions/26.2/leaf-26.2.jar",
-        project / "build/libs/CustomAnvil-2.2.0-valerin.1-offline.jar"]
+        project / "build/libs/CustomAnvil-2.2.0-valerin.2-offline.jar"]
 jars += sorted((runtime / "libraries").rglob("*.jar"))
 for row in json.loads((base / "personal-transfer-manifest.json").read_text()):
     if row["name"] in ["eco", "libreforge", "EcoEnchants", "EcoItems"]:

@@ -1,17 +1,18 @@
 # Estado CustomAnvil Valerin
 
-- Fuente: personal, projects/forks/upstream/CustomAnvil, rama valerin.
-- Integrado upstream v2.x.x 40a7f34 (31 commits por fast-forward desde 1c3ee48).
-- Cambios: parser nativo, identidad EcoItems 2026.27, conservación de sweeping
-  en migración, build nativo limitado, pruebas y documentación.
-- DEVELOPMENT_HANDOFF.md ajeno, intacto y sin seguimiento.
-- Compilado: JDK 25 / release 21 / api-version 1.21, ejecutor personal.
-- Pruebas: 150/150; dos ensayos Leaf 26.2-124 offline PASS, nativo y con Eco.
-- Artefactos/hashes: docs/VALERIN-LEAF-26.2.md; personal artifacts/CustomAnvil/2.2.0-valerin.1.
-- Instalado Custom/Sync/Test: no. Activación allí por esta entrega: no.
-- Gameplay humano, cliente/click final, configuraciones privadas: no verificados.
-- Siguiente paso: entrega revisable. Instalación/lifecycle fuera de esta tarea;
-  producción requiere autorización separada.
-
-- Git: código validado en commit local 8ec1417. Push pendiente: no hay
-  autenticación GitHub configurada en personal ni HomeSV; no se cambiaron credenciales.
+- Fuente canónica: personal, projects/forks/upstream/CustomAnvil, rama valerin.
+- Upstream40a7f34 integrado; entrega anterior8ec1417 omitía el reset del binario.
+- Entrega actual2.2.0-valerin.2: claves reset_result_repair_cost/value portadas,
+  reset después de cálculo/callbacks en preparación y extracción, incluidas
+  reparación por material y salidas regeneradas de recetas.
+- Corregido retorno2.x de recetas: supervivencia entrega resultado tras consumo.
+- Contrato/evidencia: docs/VALERIN-REPAIR-COST.md; revisión binaria fuera del repo.
+- JDK25 / release21 / api-version1.21; ejecutor personal2CPU4GiBsinSwap.
+- 154 pruebas PASS; Leaf26.2build124 sin/con Eco PASS, extracción con jugador
+  sintético:12fusiones+12renombrados, XP249/250/cap, materiales, lore, recetas,
+  callbacks, cancelación, shift, inventario lleno y creativo.
+- Artefactos/hash/commit: personal artifacts/CustomAnvil/2.2.0-valerin.2/manifest.json.
+- No instalado/activado en Custom/Sync/Test. No cliente real/gameplay humano.
+- GitHub pendiente de autenticación; no cambiar/copiar credenciales.
+- DEVELOPMENT_HANDOFF.md ajeno permanece sin seguimiento e intacto.
+- Siguiente paso: revisión de entrega; instalación/lifecycle fuera de esta tarea.

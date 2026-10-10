@@ -187,16 +187,11 @@ class AnvilResultListener : Listener {
         if (slotDestination.type == SlotType.NO_SLOT) return
 
         // Handle not creative middle click...
-        if (event.click != ClickType.MIDDLE &&
-            !handleCustomCraftClick(
-                view,
-                player,
-                leftItem,
-                rightItem,
-                result
-            )
-        ) return
-        else if(player.gameMode != GameMode.CREATIVE) {
+        if (event.click == ClickType.MIDDLE) {
+            if (player.gameMode != GameMode.CREATIVE) return
+        } else if (!handleCustomCraftClick(
+                view, player, leftItem, rightItem, result
+            )) {
             return
         }
 
@@ -238,6 +233,7 @@ class AnvilResultListener : Listener {
         } else {
             val resultItem: ItemStack = recipe.resultItem!!.clone()
             resultItem.amount *= newAmount
+            AnvilXpUtil.sanitizeResultRepairCost(resultItem)
 
             val newXp = newAmount * newAmount
 

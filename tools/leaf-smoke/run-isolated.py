@@ -20,7 +20,7 @@ for eco in [False, True]:
         shutil.copytree(cached / name, folder / name)
     shutil.copy2(cached / "leaf.jar", folder / "leaf.jar")
     for name in ["plugins", "tmp", "home"]: (folder / name).mkdir()
-    for name in ["CustomAnvil-2.2.0-valerin.1-offline.jar"]:
+    for name in ["CustomAnvil-2.2.0-valerin.2-offline.jar"]:
         shutil.copy2(project / "build/libs" / name, folder / "plugins" / name)
     shutil.copy2(project / "build/LeafAnvilProbe.jar", folder / "plugins/LeafAnvilProbe.jar")
     # Public defaults embedded in the installed 1.16.3 binary, with synthetic overrides.
@@ -31,7 +31,9 @@ for eco in [False, True]:
             (config / name).write_bytes(z.read(name))
     text = (config / "config.yml").read_text()
     import re
-    for key, value in {"limit_repair_value":"250", "item_rename_cost":"1", "allow_color_code":"false",
+    for key, value in {"limit_repair_value":"250", "limit_repair_cost":"true",
+                       "replace_too_expensive":"true", "reset_result_repair_cost":"true",
+                       "reset_result_repair_cost_value":"0", "item_rename_cost":"1", "allow_color_code":"false",
                        "configVersion":"1.15.6", "lowMinecraftVersion":"1.21.11",
                        "force_protocolib":"false", "metric_type":"disabled",
                        "metric_collect_errors":"false",

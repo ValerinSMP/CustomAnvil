@@ -117,3 +117,6 @@ For the Leaf 26.2 candidate, run bash tools/build-personal-native.sh on the
 authorized personal development host. Build output targets Java 21.
 See [Valerin Leaf 26.2 delivery](docs/VALERIN-LEAF-26.2.md) for provenance,
 migration, tests, native-only artifact scope and runtime limitations.
+
+La entrega Valerin 2.2.0-valerin.2 recupera el reset de penalización del binario
+productivo; contrato y validación en [VALERIN-REPAIR-COST.md](docs/VALERIN-REPAIR-COST.md).

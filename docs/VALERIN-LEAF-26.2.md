@@ -1,3 +1,7 @@
+> Corrección posterior: la entrega 2.2.0-valerin.1 descrita aquí no portaba
+> el reset de penalización del JAR productivo. Este documento conserva la evidencia
+> de esa entrega; la revisión y sustitución están en VALERIN-REPAIR-COST.md.
+
 # CustomAnvil Valerin — Leaf 26.2
 
 Entrega 2026-10-09: 2.2.0-valerin.1, variante nativa Paper/Leaf.

@@ -35,6 +35,8 @@ object ConfigOptions {
 
     const val ITEM_REPAIR_COST = "item_repair_cost"
     const val UNIT_REPAIR_COST = "unit_repair_cost"
+    const val RESET_RESULT_REPAIR_COST = "reset_result_repair_cost"
+    const val RESET_RESULT_REPAIR_COST_VALUE = "reset_result_repair_cost_value"
 
     const val ITEM_RENAME_COST = "item_rename_cost"
 
@@ -269,6 +271,18 @@ object ConfigOptions {
                 .takeIf { it in REPAIR_COST_RANGE }
                 ?: DEFAULT_UNIT_REPAIR_COST
             }
+        }
+
+    // Optional legacy Valerin behaviour. Use the current config read lock.
+    val doResetResultRepairCost: Boolean
+        get() = ConfigHolder.DEFAULT.read.use { lock ->
+            lock.get().config.getBoolean(RESET_RESULT_REPAIR_COST, false)
+        }
+
+    val resetResultRepairCostValue: Int
+        get() = ConfigHolder.DEFAULT.read.use { lock ->
+            lock.get().config.getInt(RESET_RESULT_REPAIR_COST_VALUE, 0)
+                .takeIf { it in REPAIR_COST_RANGE } ?: 0
         }
 
     /**
