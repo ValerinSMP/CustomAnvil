@@ -1,6 +1,7 @@
 package io.delilaheve.util
 
 import org.bukkit.Material
+import org.bukkit.NamespacedKey
 import org.bukkit.Material.ENCHANTED_BOOK
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.Damageable
@@ -79,9 +80,16 @@ object ItemUtil {
     /**
      * Check that this [ItemStack] can merge with the [other]
      *
-     * The two items should either be the same type, or, the [other] is a book
+     * Items may share their custom identity or base material, or [other] may be a book.
      */
     fun ItemStack.canMergeWith(
         other: ItemStack
-    ) = customType == other.customType || (other.isEnchantedBook())
+    ) = canMergeTypes(customType, other.customType, type, other.type)
+
+    /** Match the product legacy binary: custom identity OR base material OR sacrifice book. */
+    fun canMergeTypes(
+        firstCustomType: NamespacedKey, secondCustomType: NamespacedKey,
+        firstMaterial: Material, secondMaterial: Material
+    ): Boolean = firstCustomType == secondCustomType ||
+            firstMaterial == secondMaterial || secondMaterial == ENCHANTED_BOOK
 }

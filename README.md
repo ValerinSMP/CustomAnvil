@@ -123,3 +123,5 @@ productivo; contrato y validación en [VALERIN-REPAIR-COST.md](docs/VALERIN-REPA
 
 La entrega2.2.0-valerin.3 corrige la clasificación de EcoItems al encantar;
 [alcance y pruebas sin servidor](docs/VALERIN-ECOITEM-ENCHANTING.md).
+
+La entrega2.2.0-valerin.4 restaura [fusión por material base del JARproductivo](docs/VALERIN-CROSS-ITEM-MERGE.md).
