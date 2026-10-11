@@ -11,6 +11,10 @@
   del candidato. Ensayos previos no certifican este artefacto.
 - Contrato: docs/VALERIN-CROSS-ITEM-MERGE.md. Hash y commit en
   personal artifacts/CustomAnvil/2.2.0-valerin.4/manifest.json.
-- No instalado/activado; no cambios de permisos/config/BD/mundos/bot.
+- Instalado en disco Custom/Sync por autorización2026-10-10: SHA256
+  9b49495f4dbd126ad049e4ed30c2aa1e501e46509b7f4641781f42b82b709518.
+  Activación pendiente del próximo reinicio; sin lifecycle ni pruebas en servidor.
+  BackupsHomeSV: /mnt/storage/backups/ai/survival-custom/CustomAnvil/20261011T011453Z/.
+  Configuraciones intactas; no cambios de permisos/BD/mundos/bot.
 - Git: código ff993f5 publicado en GitHub rama valerin; autenticación ya
   disponible en el host. DEVELOPMENT_HANDOFF.md intacto untracked.
