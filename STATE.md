@@ -12,4 +12,5 @@
 - Contrato: docs/VALERIN-CROSS-ITEM-MERGE.md. Hash y commit en
   personal artifacts/CustomAnvil/2.2.0-valerin.4/manifest.json.
 - No instalado/activado; no cambios de permisos/config/BD/mundos/bot.
-- GitHub pendiente de autenticación; DEVELOPMENT_HANDOFF.md intacto untracked.
+- Git: código ff993f5 publicado en GitHub rama valerin; autenticación ya
+  disponible en el host. DEVELOPMENT_HANDOFF.md intacto untracked.
